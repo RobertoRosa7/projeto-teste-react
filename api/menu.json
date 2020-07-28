@@ -1,0 +1,88 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Lanches",
+      "items": [
+        {
+          "id": 1,
+          "name": "Hambúrguer",
+          "description": "Pão, bife de hambúrguer 90g, salada e batata.",
+          "unit_price": 8.5
+        },
+        {
+          "id": 2,
+          "name": "X-Búrguer",
+          "description": "Pão, bife de hambúrguer 90g, 1 fatia de queijo, salada e batata.",
+          "unit_price": 10.5
+        },
+        {
+          "id": 3,
+          "name": "X-Bacon",
+          "description": "Pão, bife de hambúrguer 90g, 1 fatia de queijo, 2 fatia de bacon, salada e batata.",
+          "unit_price": 12.5
+        },
+        {
+          "id": 4,
+          "name": "X-Tudo",
+          "description": "Pão, 2 bifes de hambúrguer 90g, 2 fatias de queijo, 4 fatias de bacon, salada e batata.",
+          "unit_price": 14.5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bebidas",
+      "items": [
+        {
+          "id": 5,
+          "name": "Coca-Cola",
+          "description": "Coca-Cola lata (350ml)",
+          "unit_price": 5.5,
+          "image": ""
+        },
+        {
+          "id": 6,
+          "name": "Fanta",
+          "description": "Fanta lata (350ml)",
+          "unit_price": 5.5,
+          "image": ""
+        },
+        {
+          "id": 7,
+          "name": "Sprite",
+          "description": "Sprite lata (350ml)",
+          "unit_price": 5.5,
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Entradas",
+      "items": [
+        {
+          "id": 8,
+          "name": "Batata Frita com Cheddar",
+          "description": "Batata Frita com Cheddar (Serve 2 pessoas)",
+          "unit_price": 15.5,
+          "image": ""
+        },
+        {
+          "id": 9,
+          "name": "Batata Frita",
+          "description": null,
+          "unit_price": 13,
+          "image": ""
+        },
+        {
+          "id": 10,
+          "name": "Bolinho de Bacalhau",
+          "description": "Porção com 12",
+          "unit_price": 29,
+          "image": ""
+        }
+      ]
+    }
+  ]
+}

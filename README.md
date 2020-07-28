@@ -2,8 +2,10 @@
 # Projeto teste React
 
 * [x] Criar novo projeto com React
-* [ ] Instalar Axios para Requests
-* [ ] Instalar JSON Server e fazer integração com API
+* [x] Montar estrutura do projeto
+* [x] Instalar Axios para Requests
+* [x] Instalar JSON Server e fazer integração com API
+* [x] Implementar serviço de route - somente o básico para detalhes
 * [ ] Desenvolver Layout para lista de cardápio
 * [ ] Criar resumo do pedido
 * [ ] Desenvolver funcionalidades
