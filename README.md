@@ -6,7 +6,9 @@
 * [x] Instalar Axios para Requests
 * [x] Instalar JSON Server e fazer integração com API
 * [x] Implementar serviço de route - somente o básico para detalhes
-* [ ] Desenvolver Layout para lista de cardápio
+* [x] Implementar Reducer
+* [x] Implementar Material-ui
+* [x] Desenvolver Layout para lista de cardápio
 * [ ] Criar resumo do pedido
 * [ ] Desenvolver funcionalidades
 * [ ] Desenvolver página de detalhes dos pedios individual

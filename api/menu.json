@@ -6,24 +6,28 @@
       "items": [
         {
           "id": 1,
+          "image":"https://www.mcdonalds.pt/media/1473/013_mcroyalbacon_02-tinified.png",
           "name": "Hambúrguer",
           "description": "Pão, bife de hambúrguer 90g, salada e batata.",
           "unit_price": 8.5
         },
         {
           "id": 2,
+          "image":"https://d25dk4h1q4vl9b.cloudfront.net/media/images/menu-content/BR/sanduiches-de-carne/hamburguer_new-v2.png",
           "name": "X-Búrguer",
           "description": "Pão, bife de hambúrguer 90g, 1 fatia de queijo, salada e batata.",
           "unit_price": 10.5
         },
         {
           "id": 3,
+          "image":"https://www.cardapiofox.com.br/wp-content/uploads/2020/03/xbacon2.png",
           "name": "X-Bacon",
           "description": "Pão, bife de hambúrguer 90g, 1 fatia de queijo, 2 fatia de bacon, salada e batata.",
           "unit_price": 12.5
         },
         {
           "id": 4,
+          "image":"https://lanchonete.vallesites.com.br/uploads/thumbs/515x515/x-tudo.png",
           "name": "X-Tudo",
           "description": "Pão, 2 bifes de hambúrguer 90g, 2 fatias de queijo, 4 fatias de bacon, salada e batata.",
           "unit_price": 14.5
@@ -39,21 +43,21 @@
           "name": "Coca-Cola",
           "description": "Coca-Cola lata (350ml)",
           "unit_price": 5.5,
-          "image": ""
+          "image": "https://trimais.vteximg.com.br/arquivos/ids/970793-1000-1000/foto_original.jpg?v=637135150340070000"
         },
         {
           "id": 6,
           "name": "Fanta",
           "description": "Fanta lata (350ml)",
           "unit_price": 5.5,
-          "image": ""
+          "image": "https://s3-sa-east-1.amazonaws.com/deliveryon-uploads/products/texaslanches/143_587027add0ffc.png"
         },
         {
           "id": 7,
           "name": "Sprite",
           "description": "Sprite lata (350ml)",
           "unit_price": 5.5,
-          "image": ""
+          "image": "https://www.saiderabrasil.com.br/images/produtos/produto-20190408015022.png"
         }
       ]
     },
@@ -66,21 +70,21 @@
           "name": "Batata Frita com Cheddar",
           "description": "Batata Frita com Cheddar (Serve 2 pessoas)",
           "unit_price": 15.5,
-          "image": ""
+          "image": "https://www.habibs.com.br/storage/products/images/7178_interna.png"
         },
         {
           "id": 9,
           "name": "Batata Frita",
           "description": null,
           "unit_price": 13,
-          "image": ""
+          "image": "https://marchesoni.com.br/wp-content/uploads/2020/01/batata-frita.png"
         },
         {
           "id": 10,
           "name": "Bolinho de Bacalhau",
           "description": "Porção com 12",
           "unit_price": 29,
-          "image": ""
+          "image": "https://s.cornershopapp.com/product-images/1992115.png?versionId=sBJ4zHlZzVq0OWQIX07P4N2eztXNlKEK"
         }
       ]
     }
