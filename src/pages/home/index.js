@@ -4,12 +4,14 @@ import CardsMenus from '../../components/cards-menu'
 import api from '../../services/api'
 import { connect } from 'react-redux'
 
-function Home() {
+function Home(props) {
   const [getCategories, setCategories] = useState([])
-
   useEffect(() => {
     api.get('/categories')
-      .then(response => setCategories(response.data))
+      .then(response => {
+        setCategories(response.data)
+        // props.dispatch({type: 'CREATE', newValue: response.data})
+      })
       .catch((e) => console.error(e));
   },[])
 
@@ -44,4 +46,5 @@ const mapStateToProps = (state) => {
       categories: state
   }
 }
+
 export default connect(mapStateToProps)(Home)

@@ -13,7 +13,10 @@ export const clickReducer = (state = initialState, action) => {
         newValue: action.newValue
       };
     case CREATE:
-      return state.concat([action.data])
+      return state.newValue.concat(action.newValue)
+    case 'COMANDA':
+      if(state['newValue']) return state['newValue'].concat([action.newValue])
+      return state
     case DELETE:
       return state.filter((post)=>post.id !== action.id);
     default:

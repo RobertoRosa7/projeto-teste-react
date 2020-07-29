@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,6 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import Assignment from '@material-ui/icons/Assignment'
 import { Card, CardActionArea, CardMedia, CardContent, CardActions, Button } from '@material-ui/core';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -88,18 +89,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function PrimarySearchAppBar() {
+function PrimarySearchAppBar(props) {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
-  const [total, setTotal] = React.useState(0)
-
+  const [total, settotal] = React.useState([])
   const pedidos = JSON.parse(localStorage.getItem('pedidos')) || []
+
   const isMenuOpen = Boolean(anchorEl);
   // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
+  // console.log(db)
   const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   // const handleMobileMenuClose = () => {
   //   setMobileMoreAnchorEl(null);
@@ -121,7 +122,7 @@ export default function PrimarySearchAppBar() {
     if (index >= 0) pedidos.splice(0, index)
     if (pedidos.length < 1) localStorage.removeItem('pedidos')
   }
-
+  
   const renderMenu = (
     <Menu anchorEl={anchorEl} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} id={menuId} keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right' }} open={isMenuOpen} onClose={handleMenuClose}>
       <MenuItem className={classes.resumo} onClick={handleMenuClose}>
@@ -186,51 +187,59 @@ export default function PrimarySearchAppBar() {
   //     </MenuItem>
   //   </Menu>
   // );
-
+  
   return (
-    <div className={classes.grow}>
-      <AppBar position="static" style={{background: 'white'}}>
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="default" aria-label="open drawer">
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>Cardápio Digital</Typography>
-          {/* <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase placeholder="Search…" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }}/>
-          </div> */}
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label="show 4 new mails" color="default">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="default">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
-            <IconButton edge="end" aria-label="account of current user" aria-controls={menuId} aria-haspopup="true" onClick={handleProfileMenuOpen} color="default">
-              {/* <AccountCircle /> */}
-              <Badge badgeContent={pedidos.length} color="primary">
-                {/* <NotificationsIcon /> */}
-                {/* <MailIcon /> */}
-                <Assignment />
-              </Badge>
-            </IconButton>
-          </div>
-          {/* <div className={classes.sectionMobile}>
-            <IconButton aria-label="show more" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen} color="default">
-              <MoreIcon />
-            </IconButton>
-          </div> */}
-        </Toolbar>
-      </AppBar>
-      {/* {renderMobileMenu} */}
-      {renderMenu}
-    </div>
+     <div className={classes.grow}>
+     <AppBar position="static" style={{background: 'white'}}>
+       <Toolbar>
+         <IconButton edge="start" className={classes.menuButton} color="default" aria-label="open drawer">
+           <MenuIcon />
+         </IconButton>
+         <Typography className={classes.title} variant="h6" noWrap>Cardápio Digital</Typography>
+         {/* <div className={classes.search}>
+           <div className={classes.searchIcon}>
+             <SearchIcon />
+           </div>
+           <InputBase placeholder="Search…" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }}/>
+         </div> */}
+         <div className={classes.grow} />
+         <div className={classes.sectionDesktop}>
+           {/* <IconButton aria-label="show 4 new mails" color="default">
+             <Badge badgeContent={4} color="secondary">
+               <MailIcon />
+             </Badge>
+           </IconButton>
+           <IconButton aria-label="show 17 new notifications" color="default">
+             <Badge badgeContent={17} color="secondary">
+               <NotificationsIcon />
+             </Badge>
+           </IconButton> */}
+           <IconButton edge="end" aria-label="account of current user" aria-controls={menuId} aria-haspopup="true" onClick={handleProfileMenuOpen} color="default">
+             {/* <AccountCircle /> */}
+             <Badge badgeContent={pedidos.length} color="primary">
+               {/* <NotificationsIcon /> */}
+               {/* <MailIcon /> */}
+               <Assignment />
+             </Badge>
+           </IconButton>
+         </div>
+         {/* <div className={classes.sectionMobile}>
+           <IconButton aria-label="show more" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen} color="default">
+             <MoreIcon />
+           </IconButton>
+         </div> */}
+       </Toolbar>
+     </AppBar>
+     {/* {renderMobileMenu} */}
+     {renderMenu}
+   </div>        
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+      categories: state,
+  }
+}
+
+export default connect(mapStateToProps)(PrimarySearchAppBar)

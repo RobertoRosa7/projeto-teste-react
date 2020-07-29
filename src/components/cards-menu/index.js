@@ -8,8 +8,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function CardsMenu(props) {
+function CardsMenu(props) {
   const { categories } = props
   const [item, setItem] = useState([]);
 
@@ -48,8 +49,9 @@ export default function CardsMenu(props) {
   }
 
   const fazerPedido = pedido => {
-    const pedidos = categories.items.filter(id => id.id === pedido.id)
-    localStorage.setItem(`pedidos`, JSON.stringify(pedidos))
+    // props.dispatch({type: 'COMANDA', newValue: pedido})
+    // localStorage.setItem('comanda', JSON.stringify(props.comanda.clickState))
+    localStorage.setItem('pedido', JSON.stringify(pedido))
   }
 
   return (
@@ -80,3 +82,11 @@ export default function CardsMenu(props) {
     </section>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+      comanda: state
+  }
+}
+
+export default connect(mapStateToProps)(CardsMenu)
