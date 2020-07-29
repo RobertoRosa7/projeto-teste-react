@@ -11,6 +11,8 @@ import { useHistory } from 'react-router-dom';
 
 export default function CardsMenu(props) {
   const { categories } = props
+  const [item, setItem] = useState([]);
+
   const history = useHistory()
 
   const useStyles = makeStyles({
@@ -46,7 +48,8 @@ export default function CardsMenu(props) {
   }
 
   const fazerPedido = pedido => {
-    console.log()
+    const pedidos = categories.items.filter(id => id.id === pedido.id)
+    localStorage.setItem(`pedidos`, JSON.stringify(pedidos))
   }
 
   return (

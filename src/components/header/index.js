@@ -1,19 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import Assignment from '@material-ui/icons/Assignment'
 import { Card, CardActionArea, CardMedia, CardContent, CardActions, Button } from '@material-ui/core';
 
@@ -95,13 +89,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [total, setTotal] = React.useState(0);
+  const classes = useStyles()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [total, setTotal] = React.useState(0)
 
-  // const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const pedidos = JSON.parse(localStorage.getItem('pedidos')) || []
-
   const isMenuOpen = Boolean(anchorEl);
   // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -122,44 +114,39 @@ export default function PrimarySearchAppBar() {
   //   setMobileMoreAnchorEl(event.currentTarget);
   // };
 
-  const calcTotal = pedidos => {
-    if (pedidos.length > 0) {
-      let total = 0
-      pedidos.forEach(pedido => {
-        total += pedido.unit_price
-      })
-      setTotal(total)
-    }
-  }
-
-  calcTotal(pedidos)
-
   const menuId = 'primary-search-account-menu';
   
+  const removerPedido = pedido => {
+    const index = pedidos.findIndex(i => i.id === pedido.id)
+    if (index >= 0) pedidos.splice(0, index)
+    if (pedidos.length < 1) localStorage.removeItem('pedidos')
+  }
+
   const renderMenu = (
     <Menu anchorEl={anchorEl} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} id={menuId} keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right' }} open={isMenuOpen} onClose={handleMenuClose}>
       <MenuItem className={classes.resumo} onClick={handleMenuClose}>
         <div className={classes.card}>
-          {
-            pedidos.map(pedido => (
-              <Card key={pedido.id} style={{margin: '8px 0'}}>
-              <CardActionArea>
-                <CardMedia className={classes.media} image={pedido.image} title={pedido.name} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">{pedido.name}</Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">{pedido.description}</Typography>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedido.unit_price)}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="secondary">EXCLUIR</Button>
-              </CardActions>
-            </Card>
-            ))
-          }
-        </div>
+            {
+              pedidos.map(pedido => (
+                <Card key={pedido.id} style={{margin: '8px 0'}}>
+                <CardActionArea>
+                  <CardMedia className={classes.media} image={pedido.image} title={pedido.name} />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">{pedido.name}</Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">{pedido.description}</Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedido.unit_price)}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button onClick={() => removerPedido(pedido)} size="small" color="secondary">EXCLUIR</Button>
+                </CardActions>
+              </Card>
+              ))
+            }
+          </div>
+       
       </MenuItem>
       <CardActions style={{justifyContent: 'space-between'}}>
         <Typography gutterBottom variant="h5" component="h2">TOTAL {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total)}</Typography>
