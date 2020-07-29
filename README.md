@@ -3,7 +3,7 @@
 #### JSON-SERVER 
 
 `
-  npm start 
+  json-server --watch api/menu.json
 `
 
 #### REACT PROJECT
