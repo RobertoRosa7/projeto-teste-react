@@ -1,6 +1,16 @@
 
 # Projeto teste React
 
+## JSON-SERVER 
+`
+  npm start 
+`
+
+## REACT PROJECT
+`
+  npm start
+`
+
 * [x] Criar novo projeto com React
 * [x] Montar estrutura do projeto
 * [x] Instalar Axios para Requests
@@ -9,9 +19,9 @@
 * [x] Implementar Reducer
 * [x] Implementar Material-ui
 * [x] Desenvolver Layout para lista de cardápio
-* [ ] Criar resumo do pedido
-* [ ] Desenvolver funcionalidades
-* [ ] Desenvolver página de detalhes dos pedios individual
+* [x] Criar resumo do pedido
+* [x] Desenvolver funcionalidades
+* [x] Desenvolver página de detalhes dos pedios individual
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

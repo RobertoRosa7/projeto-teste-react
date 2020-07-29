@@ -214,7 +214,9 @@ function PrimarySearchAppBar(props) {
                <NotificationsIcon />
              </Badge>
            </IconButton> */}
-           <IconButton edge="end" aria-label="account of current user" aria-controls={menuId} aria-haspopup="true" onClick={handleProfileMenuOpen} color="default">
+           <div>
+             <span style={{color: '#333'}}>Total R$ 0,00</span>
+             <IconButton edge="end" aria-label="account of current user" aria-controls={menuId} aria-haspopup="true" onClick={handleProfileMenuOpen} color="default">
              {/* <AccountCircle /> */}
              <Badge badgeContent={pedidos.length} color="primary">
                {/* <NotificationsIcon /> */}
@@ -222,6 +224,7 @@ function PrimarySearchAppBar(props) {
                <Assignment />
              </Badge>
            </IconButton>
+           </div>
          </div>
          {/* <div className={classes.sectionMobile}>
            <IconButton aria-label="show more" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen} color="default">
